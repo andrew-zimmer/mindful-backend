@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 devise_for :users
 
   namespace :v1, defaults: { format: :json } do
-    resource :sessions, only: [:create, :destroy]
+    resources :sessions, only: [:create, :destroy]
     resources :users, only: [:create] do
       resources :mood, only: [:create]
     end

@@ -1,24 +1,59 @@
-# README
+**Mindful API **
+----
+    Mindful is an API that allows a user to create a user account, sign in and out, and to create moods. Moods will be sent to the user upon signing in.
+    When logged in you will be given an authentication token to create new moods.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* **URL**
 
-Things you may want to cover:
+  user base url: 'v1/users'
+  sessions base url: 'v1/sessions'
+  mood base url: 'v1/moods'
 
-* Ruby version
+* **Method:**
+  user methods: POST
+  sessions methods: POST, DELETE
+  mood methods: POST
 
-* System dependencies
+*  **URL Params**
 
-* Configuration
+   *Session 'DELETE' :
+        require: id=[integer]
+        example: `v1/sessions/1`
 
-* Database creation
+* **Data Params**
 
-* Database initialization
+   *Session 'POST' :
+        require: email password
 
-* How to run the test suite
+    *User 'POST' :
+        require: user{email password password_authentication username}
 
-* Services (job queues, cache servers, search engines, etc.)
+    *Mood 'POST' :
+        require: user_email user_token mood{user_id mood comment}
 
-* Deployment instructions
 
-* ...
+* **Success Response:**
+
+
+  * **Code:** 200 <br />
+    **Content:**
+
+* **Error Response:**
+
+  <_Most endpoints will have many ways they can fail. From unauthorized access, to wrongful parameters etc. All of those should be liste d here. It might seem repetitive, but it helps prevent assumptions from being made where they should be._>
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "Log in" }`
+
+  OR
+
+  * **Code:** 422 UNPROCESSABLE ENTRY <br />
+    **Content:** `{ error : "Email Invalid" }`
+
+* **Sample Call:**
+
+  <_Just a sample call to your endpoint in a runnable format ($.ajax call or a curl request) - this makes life easier and more predictable._>
+
+* **Notes:**
+
+  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._>

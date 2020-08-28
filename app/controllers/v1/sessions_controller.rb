@@ -9,8 +9,10 @@ class V1::SessionsController < ApplicationController
     end
 
     def destroy
-        current_user&.authentication_token = nil
-        if current_user.save
+
+        user = User.find_by(id: params[:id])
+        user.authentication_token = nil
+        if user.save
             head(:ok)
         else
             head(:unauthorized)
