@@ -36,7 +36,46 @@
 
 
   * **Code:** 200 <br />
-    **Content:**
+    
+    * Session 'POST' : 
+        **Content:**
+         "data": {
+            "user": {
+                "email": "example@email.com",
+                "id": 1,
+                "username": "example",
+                "authentication_token": "DmS633q5nqBKZWExVbg_",
+                "moods": [
+                    {
+                        "id": 1,
+                        "user_id": 1,
+                        "comment": "finished project",
+                        "mood": "happy",
+                        "created_at": "2020-08-21T13:37:17.086Z",
+                        "updated_at": "2020-08-21T13:37:17.086Z"
+                    },
+                    ..
+                ]
+            }
+         }
+
+        * User 'POST' : 
+
+        **Content:**
+            {
+                "data": {
+                    "user": {
+                        "id": 23,
+                        "email": "new@email.com",
+                        "authentication_token": "Jsheqkx_VpyvzxBosh6x",
+                        "username": "new user"
+                    }
+                }
+            }
+
+        *Mood 'POST' : 
+        **Content:**
+        
 
 * **Error Response:**
 

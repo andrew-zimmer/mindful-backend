@@ -5,8 +5,18 @@ class V1::MoodsController < ApplicationController
          if @mood.save
             render :create
          else
-            head(:unauthorized)
+            render json: {errors: @mood.errors.full_messages}
          end
+    end
+
+    def index
+        @user = User.find_by(email: params[:user_email])
+        if @user
+            @moods = @user.moods
+            render :index
+        else
+            render json: {errors: 'can not find user'}
+        end
     end
 
 

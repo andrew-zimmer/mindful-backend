@@ -5,7 +5,7 @@ module V1
             if @user.save
                 render :create
             else
-                head(:unprocessable_entity)
+                render json: {errors: @user.errors.full_messages}
             end
         end
 
